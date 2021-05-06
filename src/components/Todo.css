@@ -91,5 +91,6 @@ input::placeholder {
 }
 
 .clear-btn {
-  margin-top: 16px;
+  margin-left: 16px;
+  padding: 6px 20px;
 }

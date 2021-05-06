@@ -1,5 +1,6 @@
 import React from "react";
 
+
 class TodoForm extends React.Component {
   constructor() {
     super();
@@ -19,11 +20,19 @@ class TodoForm extends React.Component {
     this.props.addItem(this.state.input);
   }
 
+   handleClick = (e)=>{
+    e.preventDefault();
+    this.props.clearCompleted();
+    }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <input onChange={this.handleChanges} type="text" name="item" />
         <button>Add Todo</button>
+        <button onClick={this.handleClick} className="clear-btn">
+        Clear Completed
+        </button>
       </form>
     );
   }

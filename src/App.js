@@ -57,15 +57,18 @@ class App extends React.Component {
           }
         
           clearCompleted = () => {
-            const newTodos = this.state.todos.filter(item => {
+            const newTodo = this.state.todos.filter(item => {
               return(item.completed === false);
             });
-        
-        
+            console.log(newTodo)
+
             this.setState({
-              todos: newTodos
+              todos: newTodo
             })
+
           }
+
+          
   render() {
     return (
       <div className="App">
@@ -73,8 +76,8 @@ class App extends React.Component {
           <h2>Welcome to your Todo App!</h2>
         </div>
         <div>
-          <TodoList clearCompleted={this.clearCompleted} toggleItem={this.toggleItem} todos={this.state.todos} />        
-        <TodoForm addItem={this.addItem}/>
+          <TodoList   toggleItem={this.toggleItem} todos={this.state.todos} />        
+        <TodoForm clearCompleted={this.clearCompleted} addItem={this.addItem}/>
         </div>
       </div>
         
@@ -85,82 +88,3 @@ class App extends React.Component {
 export default App;
 
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
-// import GroceryList from './components/GroceryList';
-// import ListForm from './components/ListForm';
-// import './styles.scss';
-
-// const groceries = [
-//   {
-//     name: 'Bananas',
-//     id: 123,
-//     purchased: false
-//   },
-
-
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       groceries: groceries
-//     }
-//   }
-
-//   toggleItem = (id) => {
-//     const newGroceries = this.state.groceries.map(item => {
-//       if (item.id === id) {
-//         return {
-//           ...item,
-//           purchased: !item.purchased
-//         }
-//       } else {
-//         return (item);
-//       }
-//     });
-
-//     this.setState({
-//       groceries: newGroceries
-//     });
-//   }
-
-//   addItem = (title) => {
-//     const newItem = {
-//       name:title,
-//       id:this.state.groceries.length,
-//       purchased: false
-//     };
-    
-//     this.setState({
-//       groceries: [...this.state.groceries, newItem]
-//     })
-//   }
-
-//   clearPurchased = () => {
-//     const newGroceries = this.state.groceries.filter(item => {
-//       return(item.purchased === false);
-//     });
-
-
-//     this.setState({
-//       groceries: newGroceries
-//     })
-//   }
-
-//   // Class methods to update state
-//   render() {
-//     return (
-//       <div className="App">
-//         <div className="header">
-//            <h1>Shopping List</h1>
-//            <ListForm addItem={this.addItem}/>
-//          </div>
-//         <GroceryList clearPurchased={this.clearPurchased} toggleItem={this.toggleItem} groceries={this.state.groceries} />
-//        </div>
-//     );
-//   }
-// }
-
-// const rootElement = document.getElementById('root');
-// ReactDOM.render(<App />, rootElement);
